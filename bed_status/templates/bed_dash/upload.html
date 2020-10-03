@@ -1,0 +1,32 @@
+{% extends 'bed_dash/base.html' %} {% load static%} {% block content %}
+<style>
+    .myform {
+        margin-top: 200px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+</style>
+
+
+{% if messages %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }}" role="alert">
+    <p{% if message.tags %} class="" {% endif %}>{{ message }}</p>
+</div>{% endfor %} {% endif %}
+
+<h2>Upload</h2>
+<form method="post" enctype="multipart/form-data" class="myform">
+    {% csrf_token %}
+    <input type="file" name="myFile">
+    <button type="submit">Upload file</button>
+    <h2>Please Upload Excel File</h2>
+</form>
+<div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>{% endfor %}
+
+</div>
+{% endblock %}

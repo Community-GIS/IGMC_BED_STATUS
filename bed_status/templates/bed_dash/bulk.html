@@ -1,0 +1,56 @@
+{% extends 'bed_dash/base.html' %} {% load static%} {% block content %}
+<form method="POST" class="post-form" action="/emp/">
+    {% csrf_token %}
+    <div class="container">
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <h3>Enter Details</h3>
+            </div>
+        </div>
+        <!-- <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Id:</label>
+            <div class="col-sm-4">
+                {{ form.id }}
+            </div>
+        </div> -->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name:</label>
+            <div class="col-sm-4">
+                {{ form.name }}
+            </div>
+        </div>
+        <!-- <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Email:</label>
+            <div class="col-sm-4">
+                {{ form.eemail }}
+            </div>
+        </div> -->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Contact:</label>
+            <div class="col-sm-4">
+                {{ form.mobile }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Designation:</label>
+            <div class="col-sm-4">
+                {{ form.designation }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Roles:</label>
+            <div class="col-sm-4">
+                {{ form.roles }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
