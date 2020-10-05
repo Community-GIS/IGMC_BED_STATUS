@@ -1,4 +1,4 @@
-# health_gis
+# bed_status
 
 ## Developers
 * Shweta Panwar

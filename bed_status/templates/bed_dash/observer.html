@@ -1,0 +1,132 @@
+{% extends 'bed_dash/base.html' %} {% load static%} {% block content %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Registration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="">
+
+<style>
+    #wrapper {
+        margin-top: 200px;
+        margin-left: 40px;
+        margin-right: 15px;
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        margin-left: 40px;
+        margin-right: 15px;
+    }
+</style>
+<!-- <form action="coordinator" method="POST">
+    {% csrf_token %} -->
+<div id="wrapper">
+    <!-- <a href="/xyz/">Update Duty Chart</a> -->
+
+    <h2>Coordinator Details</h2>
+
+    <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+        <!-- <table style="width:80%"> -->
+        <tr>
+            <th>Date </th>
+            <th>Coordinator Name </th>
+            <th>Contact NUmber </th>
+            <th>Alternate NUmber </th>
+            <th>Duty Schedule </th>
+            <!-- <th>Update</th> -->
+        </tr>
+
+        {% for i in data %}
+        <tr id="row1">
+            <td id="name_row1">{{i.date}}</td>
+            <td id="country_row1">{{i.cordname}}</td>
+            <td id="age_row1">{{i.contnum}}</td>
+            <td>{{i.altnum}}</td>
+            <td>{{i.schfrom}} to {{i.schto}}</td>
+
+        </tr>
+        <!-- <tr>
+            <td>{{i.date}}</td>
+            <td>{{i.cordname}}</td>
+            <td>{{i.contnum}}</td>
+            <td>{{i.altnum}}</td>
+            <td>{{i.schfrom}} to {{i.schto}}
+
+            </td>
+        </tr> -->
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <h2>Doctor Details</h2>
+    <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+        <tr>
+            <th>Date </th>
+            <th>Doctor Name </th>
+            <th>Contact NUmber </th>
+            <th>Alternate NUmber </th>
+            <th>Duty Schedule </th>
+        </tr>
+
+        {% for i in docdata %}
+
+        <tr>
+            <td>{{i.date}}</td>
+            <td>{{i.docname}}</td>
+            <td>{{i.contnum}}</td>
+            <td>{{i.altnum}}</td>
+            <td>{{i.schfrom}} to {{i.schto}}
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <h2>Update Details</h2>
+
+
+
+    <table style="width:80%">
+        <tr>
+            <th>Date </th>
+            <th>Time </th>
+            <th>Updated By</th>
+            <th>Contact Number</th>
+            <th>Ward Number </th>
+            <th>Ward Type</th>
+            <th>Beds with ventilator</th>
+            <th>Beds with oxygen cylinder</th>
+        </tr>
+
+        {% for i in upform %}
+
+        <tr id="somerow">
+            <td>{{i.date}}</td>
+            <td id="tme">{{i.tme}}</td>
+            <td>{{i.upby}}</td>
+            <td>{{i.contnum}}</td>
+            <td>{{i.wardnum}}</td>
+            <td>{{i.wardtype}}</td>
+            <td>{{i.ventbed}}</td>
+            <td>{{i.oxybed}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+<!-- </form> -->
+
+
+<script>
+    // var x = document.getElementById("tme")
+    var Row = document.getElementById("somerow");
+    var Cells = Row.getElementsByTagName("td");
+    var x = Cells[1].innerText;
+    console.log(x)
+</script>
+{% endblock %}
